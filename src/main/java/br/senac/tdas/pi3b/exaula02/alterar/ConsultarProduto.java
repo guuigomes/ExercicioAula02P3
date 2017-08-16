@@ -36,6 +36,10 @@ public class ConsultarProduto extends javax.swing.JInternalFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jToggleButton2 = new javax.swing.JToggleButton();
 
+        setClosable(true);
+        setIconifiable(true);
+        setResizable(true);
+
         jLabel1.setText("Pesquisar Produto");
 
         jButton1.setText("jButton1");

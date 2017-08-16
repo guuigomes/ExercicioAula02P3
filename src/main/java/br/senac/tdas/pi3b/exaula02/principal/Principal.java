@@ -66,6 +66,11 @@ public class Principal extends javax.swing.JFrame {
         menu.add(menuCadastrar);
 
         menuAlterar.setText("Alterar/Excluir");
+        menuAlterar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuAlterarMouseClicked(evt);
+            }
+        });
         menu.add(menuAlterar);
 
         setJMenuBar(menu);
@@ -74,13 +79,11 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(desktopPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+            .addComponent(desktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,6 +99,17 @@ public class Principal extends javax.swing.JFrame {
         }
         cadastrarProduto.toFront();
     }//GEN-LAST:event_menuCadastrarMouseClicked
+
+    private void menuAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlterarMouseClicked
+        //Alterar Produto
+        //verifica se a tela está vazia ou se ja não esta aberta
+        if ( consultarProduto == null || !consultarProduto.isDisplayable()) {
+            consultarProduto = new ConsultarProduto();
+            desktopPrincipal.add(consultarProduto);
+            centralizarJanela(consultarProduto);
+        }
+        consultarProduto.toFront();
+    }//GEN-LAST:event_menuAlterarMouseClicked
     
     public void centralizarJanela(JInternalFrame jif) {
         Dimension desktopSize = desktopPrincipal.getSize();
