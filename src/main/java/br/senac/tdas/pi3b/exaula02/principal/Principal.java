@@ -5,15 +5,16 @@
  */
 package br.senac.tdas.pi3b.exaula02.principal;
 
+import br.senac.tdas.pi3b.exaula02.alterar.consultarProduto;
+
 /**
  *
  * @author elvis
  */
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Cadastro
-     */
+    private consultarProduto consultarProduto = null;
+    
     public Principal() {
         initComponents();
     }
