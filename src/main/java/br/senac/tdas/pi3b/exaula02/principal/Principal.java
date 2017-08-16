@@ -51,36 +51,45 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane2 = new javax.swing.JDesktopPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        desktopPrincipal = new javax.swing.JDesktopPane();
+        menu = new javax.swing.JMenuBar();
+        menuCadastrar = new javax.swing.JMenu();
+        menuAlterar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Cadastrar");
-        jMenuBar1.add(jMenu1);
+        menuCadastrar.setText("Cadastrar");
+        menuCadastrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menuCadastrarMouseClicked(evt);
+            }
+        });
+        menu.add(menuCadastrar);
 
-        jMenu2.setText("Alterar");
-        jMenuBar1.add(jMenu2);
+        menuAlterar.setText("Alterar/Excluir");
+        menu.add(menuAlterar);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(desktopPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jDesktopPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(desktopPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCadastrarMouseClicked
+        
+    }//GEN-LAST:event_menuCadastrarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -119,9 +128,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JDesktopPane jDesktopPane2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JDesktopPane desktopPrincipal;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenu menuAlterar;
+    private javax.swing.JMenu menuCadastrar;
     // End of variables declaration//GEN-END:variables
 }
