@@ -6,6 +6,7 @@
 package br.senac.tdas.pi3b.exaula02.alterar;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,7 +31,6 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        vendaTxt = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         nomeTxt = new javax.swing.JTextField();
         descTxt = new javax.swing.JTextField();
@@ -41,6 +41,7 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         categoriaCombo = new javax.swing.JComboBox<>();
         salvarBotao = new javax.swing.JButton();
+        vendaTxt = new javax.swing.JFormattedTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -61,15 +62,15 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Valor de Compra:");
 
-        compraTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        compraTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Categorias:");
+        jLabel4.setText("Categoria:");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Valor de venda:");
 
-        categoriaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        categoriaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Categoria A", "Categoria B", "Categoria C" }));
         categoriaCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoriaComboActionPerformed(evt);
@@ -83,6 +84,8 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
             }
         });
 
+        vendaTxt.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -90,7 +93,7 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel3)
@@ -99,21 +102,21 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
                                 .addGap(35, 35, 35)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(vendaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(vendaTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(descTxt)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(descTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                                     .addComponent(nomeTxt)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(33, 33, 33)
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(categoriaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(categoriaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 45, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -169,7 +172,23 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_categoriaComboActionPerformed
 
     private void salvarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarBotaoActionPerformed
-     
+        String nome = nomeTxt.getText();
+        String desc = descTxt.getText();
+        double venda = Double.parseDouble(vendaTxt.getText());
+        double compra = Double.parseDouble(compraTxt.getText());
+        String categoria = (String) categoriaCombo.getSelectedItem();
+        String erro = Mock.ValidadorProduto.validar(nome, venda, compra, desc, categoria);
+        if (!erro.equals("")) {
+            JOptionPane.showMessageDialog(this, erro);
+        } else {
+            try {
+                Mock.Produto.adicionarProduto(nome, venda, compra, desc);
+                JOptionPane.showMessageDialog(this, "Produto adicionado");
+            } catch (Exception E) {
+                JOptionPane.showMessageDialog(this, "Erro ao adicionar produto");
+            }
+        }
+
     }//GEN-LAST:event_salvarBotaoActionPerformed
 
 
@@ -185,6 +204,6 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeTxt;
     private javax.swing.JButton salvarBotao;
-    private javax.swing.JTextField vendaTxt;
+    private javax.swing.JFormattedTextField vendaTxt;
     // End of variables declaration//GEN-END:variables
 }

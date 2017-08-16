@@ -5,20 +5,31 @@
  */
 package Modelo;
 
+import br.senac.tdas.pi3b.exaula02.principal.Principal;
+
 /**
  *
  * @author Gabriel
  */
-public class Porduto {
+public class Produto {
 
     static int id;
     static double compra;
     static double venda;
     static String nome;
     static String desc;
+    static String categoria;
 
-    public static void setId(int x) {
-        id = x;
+    public static void setCategoria(String x) {
+        categoria = x;
+    }
+
+    public static String getCategoria() {
+        return categoria;
+    }
+
+    public static void setId() {
+        id = Principal.totalProdutos++;
     }
 
     public static int getId() {
@@ -47,6 +58,14 @@ public class Porduto {
 
     public static String getDesc() {
         return desc;
+    }
+
+    public static void setNome(String x) {
+        nome = x;
+    }
+
+    public static String getNome() {
+        return nome;
     }
 
 }

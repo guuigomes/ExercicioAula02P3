@@ -8,6 +8,7 @@ package br.senac.tdas.pi3b.exaula02.principal;
 import br.senac.tdas.pi3b.exaula02.alterar.CadastrarProduto;
 import br.senac.tdas.pi3b.exaula02.alterar.ConsultarProduto;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 
 /**
@@ -15,28 +16,32 @@ import javax.swing.JInternalFrame;
  * @author elvis
  */
 public class Principal extends javax.swing.JFrame {
-    
+
     private ConsultarProduto consultarProduto = null;
     private CadastrarProduto cadastrarProduto = null;
-    
+
     public Principal() {
         initComponents();
         this.setLocationRelativeTo(null);
+
     }
+
+    public static ArrayList<Modelo.Produto> listaDeProdutos = new ArrayList<Modelo.Produto>();
+    public static int totalProdutos = 0;
 
     //metodos
     public ConsultarProduto getConsultarProduto() {
         return consultarProduto;
     }
-    
+
     public void setConsultarProduto(ConsultarProduto consultarProduto) {
         this.consultarProduto = consultarProduto;
     }
-    
+
     public CadastrarProduto getCadastrarProduto() {
         return cadastrarProduto;
     }
-    
+
     public void setCadastrarProduto(CadastrarProduto cadastrarProduto) {
         this.cadastrarProduto = cadastrarProduto;
     }
@@ -103,14 +108,14 @@ public class Principal extends javax.swing.JFrame {
     private void menuAlterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuAlterarMouseClicked
         //Alterar Produto
         //verifica se a tela está vazia ou se ja não esta aberta
-        if ( consultarProduto == null || !consultarProduto.isDisplayable()) {
+        if (consultarProduto == null || !consultarProduto.isDisplayable()) {
             consultarProduto = new ConsultarProduto();
             desktopPrincipal.add(consultarProduto);
             centralizarJanela(consultarProduto);
         }
         consultarProduto.toFront();
     }//GEN-LAST:event_menuAlterarMouseClicked
-    
+
     public void centralizarJanela(JInternalFrame jif) {
         Dimension desktopSize = desktopPrincipal.getSize();
         Dimension jInternalFrameSize = jif.getSize();
