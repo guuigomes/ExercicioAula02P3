@@ -7,13 +7,15 @@ package br.senac.tdas.pi3b.exaula02.principal;
 
 import br.senac.tdas.pi3b.exaula02.alterar.CadastrarProduto;
 import br.senac.tdas.pi3b.exaula02.alterar.ConsultarProduto;
+import java.awt.Dimension;
+import javax.swing.JInternalFrame;
 
 /**
  *
  * @author elvis
  */
 public class Principal extends javax.swing.JFrame {
-
+    
     private ConsultarProduto consultarProduto = null;
     private CadastrarProduto cadastrarProduto = null;
     
@@ -21,26 +23,23 @@ public class Principal extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    //metodos
 
+    //metodos
     public ConsultarProduto getConsultarProduto() {
         return consultarProduto;
     }
-
+    
     public void setConsultarProduto(ConsultarProduto consultarProduto) {
         this.consultarProduto = consultarProduto;
     }
-
+    
     public CadastrarProduto getCadastrarProduto() {
         return cadastrarProduto;
     }
-
+    
     public void setCadastrarProduto(CadastrarProduto cadastrarProduto) {
         this.cadastrarProduto = cadastrarProduto;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,8 +87,24 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuCadastrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menuCadastrarMouseClicked
-        
+        //Cadastrar Produto
+        //verifica se a tela está vazia ou se ja não esta aberta
+        if (cadastrarProduto == null || !cadastrarProduto.isDisplayable()) {
+            cadastrarProduto = new CadastrarProduto();
+            desktopPrincipal.add(cadastrarProduto);
+            centralizarJanela(cadastrarProduto);
+        }
+        cadastrarProduto.toFront();
     }//GEN-LAST:event_menuCadastrarMouseClicked
+    
+    public void centralizarJanela(JInternalFrame jif) {
+        Dimension desktopSize = desktopPrincipal.getSize();
+        Dimension jInternalFrameSize = jif.getSize();
+        int width = (desktopSize.width - jInternalFrameSize.width) / 2;
+        int height = (desktopSize.height - jInternalFrameSize.height) / 2;
+        jif.setLocation(width, height);
+        jif.setVisible(true);
+    }
 
     /**
      * @param args the command line arguments
