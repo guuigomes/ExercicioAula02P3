@@ -5,7 +5,8 @@
  */
 package br.senac.tdas.pi3b.exaula02.principal;
 
-import br.senac.tdas.pi3b.exaula02.alterar.consultarProduto;
+import br.senac.tdas.pi3b.exaula02.alterar.CadastrarProduto;
+import br.senac.tdas.pi3b.exaula02.alterar.ConsultarProduto;
 
 /**
  *
@@ -13,11 +14,33 @@ import br.senac.tdas.pi3b.exaula02.alterar.consultarProduto;
  */
 public class Principal extends javax.swing.JFrame {
 
-    private consultarProduto consultarProduto = null;
+    private ConsultarProduto consultarProduto = null;
+    private CadastrarProduto cadastrarProduto = null;
     
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
+    
+    //metodos
+
+    public ConsultarProduto getConsultarProduto() {
+        return consultarProduto;
+    }
+
+    public void setConsultarProduto(ConsultarProduto consultarProduto) {
+        this.consultarProduto = consultarProduto;
+    }
+
+    public CadastrarProduto getCadastrarProduto() {
+        return cadastrarProduto;
+    }
+
+    public void setCadastrarProduto(CadastrarProduto cadastrarProduto) {
+        this.cadastrarProduto = cadastrarProduto;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
