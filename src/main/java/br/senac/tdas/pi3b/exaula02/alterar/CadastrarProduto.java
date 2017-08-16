@@ -9,12 +9,12 @@ package br.senac.tdas.pi3b.exaula02.alterar;
  *
  * @author Vitor
  */
-public class NewJInternalFrame extends javax.swing.JInternalFrame {
+public class CadastrarProduto extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NewJInternalFrame
      */
-    public NewJInternalFrame() {
+    public CadastrarProduto() {
         initComponents();
     }
 

@@ -9,12 +9,12 @@ package br.senac.tdas.pi3b.exaula02.alterar;
  *
  * @author Vitor
  */
-public class NewJInternalFrame1 extends javax.swing.JInternalFrame {
+public class ConsultarProduto extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NewJInternalFrame1
      */
-    public NewJInternalFrame1() {
+    public ConsultarProduto() {
         initComponents();
     }
 
