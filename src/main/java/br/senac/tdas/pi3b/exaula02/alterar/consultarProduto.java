@@ -9,12 +9,12 @@ package br.senac.tdas.pi3b.exaula02.alterar;
  *
  * @author guilherme.gcosta6
  */
-public class alterarProduto extends javax.swing.JPanel {
+public class consultarProduto extends javax.swing.JPanel {
 
     /**
      * Creates new form alterar
      */
-    public alterarProduto() {
+    public consultarProduto() {
         initComponents();
     }
 
