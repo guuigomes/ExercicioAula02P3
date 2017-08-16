@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.senac.tdas.pi3b.exaula02;
+package br.senac.tdas.pi3b.exaula02.principal;
 
 /**
  *

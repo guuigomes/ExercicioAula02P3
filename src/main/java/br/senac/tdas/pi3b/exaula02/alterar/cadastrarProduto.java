@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Cadastrar_Produto;
+package br.senac.tdas.pi3b.exaula02.alterar;
 
 /**
  *
  * @author gabriel.sleal1
  */
-public class CadastrarProduto extends javax.swing.JPanel {
+public class cadastrarProduto extends javax.swing.JPanel {
 
     /**
      * Creates new form CadastrarProduto
      */
-    public CadastrarProduto() {
+    public cadastrarProduto() {
         initComponents();
     }
 
