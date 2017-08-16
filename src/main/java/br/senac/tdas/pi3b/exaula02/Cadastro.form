@@ -14,10 +14,6 @@
             <Property name="text" type="java.lang.String" value="Alterar"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
