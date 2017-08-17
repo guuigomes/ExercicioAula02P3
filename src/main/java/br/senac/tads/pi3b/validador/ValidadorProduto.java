@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mock;
+package br.senac.tads.pi3b.validador;
 
 /**
  *

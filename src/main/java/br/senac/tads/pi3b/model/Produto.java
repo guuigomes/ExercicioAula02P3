@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelo;
+package br.senac.tads.pi3b.model;
 
 import br.senac.tdas.pi3b.exaula02.principal.Principal;
 

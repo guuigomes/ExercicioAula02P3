@@ -172,22 +172,7 @@ public class CadastrarProduto extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_categoriaComboActionPerformed
 
     private void salvarBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarBotaoActionPerformed
-        String nome = nomeTxt.getText();
-        String desc = descTxt.getText();
-        double venda = Double.parseDouble(vendaTxt.getText());
-        double compra = Double.parseDouble(compraTxt.getText());
-        String categoria = (String) categoriaCombo.getSelectedItem();
-        String erro = Mock.ValidadorProduto.validar(nome, venda, compra, desc, categoria);
-        if (!erro.equals("")) {
-            JOptionPane.showMessageDialog(this, erro);
-        } else {
-            try {
-                Mock.Produto.adicionarProduto(nome, venda, compra, desc);
-                JOptionPane.showMessageDialog(this, "Produto adicionado");
-            } catch (Exception E) {
-                JOptionPane.showMessageDialog(this, "Erro ao adicionar produto");
-            }
-        }
+
 
     }//GEN-LAST:event_salvarBotaoActionPerformed
 
