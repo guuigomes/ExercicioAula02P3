@@ -20,52 +20,52 @@ public class Produto {
     static String desc;
     static String categoria;
 
-    public static void setCategoria(String x) {
-        categoria = x;
-    }
-
-    public static String getCategoria() {
-        return categoria;
-    }
-
-    public static void setId() {
-        id = Principal.totalProdutos++;
-    }
-
     public static int getId() {
         return id;
     }
 
-    public static void setCompra(double x) {
-        compra = x;
+    public static void setId(int id) {
+        Produto.id = id;
     }
 
     public static double getCompra() {
         return compra;
     }
 
-    public static void setVenda(double x) {
-        venda = x;
+    public static void setCompra(double compra) {
+        Produto.compra = compra;
     }
 
     public static double getVenda() {
         return venda;
     }
 
-    public static void setDesc(String x) {
-        desc = x;
+    public static void setVenda(double venda) {
+        Produto.venda = venda;
+    }
+
+    public static String getNome() {
+        return nome;
+    }
+
+    public static void setNome(String nome) {
+        Produto.nome = nome;
     }
 
     public static String getDesc() {
         return desc;
     }
 
-    public static void setNome(String x) {
-        nome = x;
+    public static void setDesc(String desc) {
+        Produto.desc = desc;
     }
 
-    public static String getNome() {
-        return nome;
+    public static String getCategoria() {
+        return categoria;
+    }
+
+    public static void setCategoria(String categoria) {
+        Produto.categoria = categoria;
     }
 
 }

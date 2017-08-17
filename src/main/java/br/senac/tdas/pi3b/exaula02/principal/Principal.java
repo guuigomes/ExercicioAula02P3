@@ -26,8 +26,6 @@ public class Principal extends javax.swing.JFrame {
 
     }
 
-    public static ArrayList<br.senac.tads.pi3b.model.Produto> listaDeProdutos = new ArrayList<br.senac.tads.pi3b.model.Produto>();
-    public static int totalProdutos = 0;
 
     //metodos
     public ConsultarProduto getConsultarProduto() {
